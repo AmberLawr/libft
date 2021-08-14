@@ -3,10 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
+<<<<<<< HEAD
 /*   By: edavid <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 12:47:42 by jzhou             #+#    #+#             */
 /*   Updated: 2021/08/14 16:14:06 by edavid           ###   ########.fr       */
+=======
+/*   By: jzhou <jzhou@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/22 12:47:42 by jzhou             #+#    #+#             */
+/*   Updated: 2021/07/01 13:16:28 by jzhou            ###   ########.fr       */
+>>>>>>> 18068696b6bbf0fd9cdd9fde8d1edc19ed43c1dc
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +54,6 @@ int		ft_toupper(int ch);
 int		ft_tolower(int ch);
 void	*ft_calloc(size_t nitems, size_t size);
 char	*ft_strdup(const char *s);
-
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
