@@ -3,23 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-<<<<<<< HEAD
-/*   By: edavid <marvin@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/22 12:47:42 by jzhou             #+#    #+#             */
-/*   Updated: 2021/08/14 16:14:06 by edavid           ###   ########.fr       */
-=======
 /*   By: jzhou <jzhou@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 12:47:42 by jzhou             #+#    #+#             */
-/*   Updated: 2021/07/01 13:16:28 by jzhou            ###   ########.fr       */
->>>>>>> 18068696b6bbf0fd9cdd9fde8d1edc19ed43c1dc
+/*   Updated: 2021/09/12 11:32:26 by jzhou            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-
+# define BUFFER_SIZE 50
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -46,7 +39,7 @@ char	*ft_strnstr(const char	*big, const char *little, size_t len);
 int		ft_strncmp(const char *str1, const char *str2, size_t n);
 int		ft_atoi(const char *str);
 int		ft_isalpha(int argument);
-int		ft_isdigit (int argument);
+int		ft_isdigit(int argument);
 int		ft_isalnum(int argument);
 int		ft_isascii(int c);
 int		ft_isprint(int arg);
@@ -59,8 +52,10 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
-// this fct allocates memory, switches the number to the desired base.
+//this fct allocates memory, switches the number to the desired base.
 char	*ft_itobase(unsigned long n, int base);
+//this fct allocates memory, turns numbers > 10 into capital letters
+char	*ft_itobase_cap(unsigned long n, int base);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
@@ -76,4 +71,10 @@ t_list	*ft_lstlast(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
+void	ft_lstiter(t_list *lst, void (*f)(void *));
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+//this function allocates memory, returns the line read
+char	*get_next_line(int fd);
+char	*ft_eof(char **line, char **buf);
 #endif

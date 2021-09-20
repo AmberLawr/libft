@@ -1,35 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jzhou <jzhou@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/16 08:09:23 by jzhou             #+#    #+#             */
-/*   Updated: 2021/09/03 17:50:51 by jzhou            ###   ########.fr       */
+/*   Created: 2021/07/19 15:01:05 by jzhou             #+#    #+#             */
+/*   Updated: 2021/09/03 17:49:22 by jzhou            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+char	*ft_eof(char **line, char **buf)
 {
-	unsigned char	*csrc;
-	unsigned char	*cdest;
-
-	csrc = (unsigned char *)src;
-	cdest = (unsigned char *)dst;
-	if ((cdest == 0) && (csrc == 0))
-		return (0);
-	if (csrc < cdest)
-	{
-		while (len > 0)
-		{
-			cdest[len - 1] = csrc[len - 1];
-			len--;
-		}
-	}
-	else
-		ft_memcpy(cdest, csrc, len);
-	return (dst);
+	*line = *buf;
+	*buf = NULL;
+	return (*line);
 }

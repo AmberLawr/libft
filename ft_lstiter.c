@@ -1,35 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jzhou <jzhou@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/16 08:09:23 by jzhou             #+#    #+#             */
-/*   Updated: 2021/09/03 17:50:51 by jzhou            ###   ########.fr       */
+/*   Created: 2021/09/12 11:20:25 by jzhou             #+#    #+#             */
+/*   Updated: 2021/09/12 11:24:01 by jzhou            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	unsigned char	*csrc;
-	unsigned char	*cdest;
+	t_list	*temp1;
+	t_list	*temp2;
 
-	csrc = (unsigned char *)src;
-	cdest = (unsigned char *)dst;
-	if ((cdest == 0) && (csrc == 0))
-		return (0);
-	if (csrc < cdest)
+	temp1 = lst;
+	if (lst == NULL || f == NULL)
+		return ;
+	while (temp1->next != NULL)
 	{
-		while (len > 0)
-		{
-			cdest[len - 1] = csrc[len - 1];
-			len--;
-		}
+		temp2 = temp1->next;
+		f(temp1->content);
+		temp1 = temp2;
 	}
-	else
-		ft_memcpy(cdest, csrc, len);
-	return (dst);
+	f(temp1->content);
 }
